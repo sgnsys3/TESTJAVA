@@ -3,55 +3,76 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg59130500070pu;
+package testaddress;
 
 /**
  *
  * @author INT105
  */
-public class Address { //component object
-    private String homeId;
-    private String nameHome;
-    private int numberId;
+public class Address {
+    private String postCode;
+    private String province;
+    private String homeNum;
+    private String road;
     
-    public Address(){
-        
+    public Address(){}
+   
+  
+ public Address(String postCode, String province, String homeNum, String road) {
+    this.postCode = postCode;
+    this.province = province;
+    this.homeNum = homeNum;
+    this.road = road;
+    
+    
+}
+
+    public String getPostCode() {
+        return postCode;
     }
 
-    public Address(String homeId, String nameHome, int numberId) {
-        this.homeId = homeId;
-        this.nameHome = nameHome;
-        this.numberId = numberId;
+    public String getProvince() {
+        return province;
     }
 
-    public String getHomeId() {
-        return homeId;
+    public String getHomeNum() {
+        return homeNum;
     }
 
-    public String getNameHome() {
-        return nameHome;
+    public String getRoad() {
+        return road;
     }
 
-    public int getNumberId() {
-        return numberId;
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
     }
 
-    public void setHomeId(String homeId) {
-        this.homeId = homeId;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
-    public void setNameHome(String nameHome) {
-        this.nameHome = nameHome;
+    public void setHomeNum(String homeNum) {
+        this.homeNum = homeNum;
     }
 
-    public void setNumberId(int numberId) {
-        this.numberId = numberId;
+    public void setRoad(String road) {
+        this.road = road;
     }
 
     @Override
     public String toString() {
-        return "Address{" + "homeId=" + homeId + ", nameHome=" + nameHome + ", numberId=" + numberId + '}';
+        return "Address {" + "postCode = " + postCode + ", province = " + province + ", homeNum = " + homeNum + ", road = " + road + '}';
     }
     
-    
+    @Override
+    public boolean equals(Object obj){
+        boolean result = false;
+        if(obj instanceof Address){
+            Address ad = (Address)obj;
+            if(homeNum.equals(ad.homeNum) && (road.equals(ad.road)) && (postCode.equals(ad.postCode))){
+               result = true;
+            }
+        }
+        return result;
+    }
 }
